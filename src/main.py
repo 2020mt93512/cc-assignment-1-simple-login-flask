@@ -3,6 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, session, abo
 import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(12)
 
 @app.route('/home')
 def do_home():
@@ -46,5 +47,4 @@ def do_logout():
 	return redirect('/')
 
 if __name__ == "__main__":
-	app.secret_key = os.urandom(12)
 	app.run(debug=True,host='0.0.0.0', port=4000)

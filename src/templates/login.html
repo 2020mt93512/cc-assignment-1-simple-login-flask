@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>CC Assignment - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/login.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+		<div class="login">
+			<form class="loginForm" action="/login" method="POST">
+					<div class="loginTitle">
+							<h1>Login</h1>
+					</div>
+					<label>
+							<p>Username</p>
+							<input type="text" name="username" placeholder="Enter your username" class="textBox">
+					</label>
+					<label>
+							<p>Password</p>
+							<input type="password" name="password" placeholder="Enter your password" class="textBox"/>
+					</label>
+					<div class="button-submit">
+							<button type="submit">
+									Login
+							</button>
+					</div>
+					<div class="error">
+						{% if session['wrong_username'] %}
+							<p>Wrong username!</p>
+						{% elif session['wrong_password'] %}
+							<p>Wrong password!</p>
+						{% endif %}
+					</div>
+			</form>
+		</div>
+	</body>
+</html>
